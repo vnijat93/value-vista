@@ -11,15 +11,31 @@
             </button>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a style="color: #f0f1f6" href="/">Home</a></li>
-                <li><a style="color: #f0f1f6" href="/">Try It</a></li>
-                <li><a style="color: #f0f1f6" href="/">Learn</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a style="color: #f0f1f6" href="{{ url_for('auth.login') }}">Sign In</a></li>
-                <li><a style="color: #f0f1f6" href="{{ url_for('auth.register') }}">Sign Up</a></li>
-            </ul>
+
+            {% if current_user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a style="color: #f0f1f6" href="/">Home</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Fundamental Analysis</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Compare</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Balance Portfolio</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Calculate Graham Number</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Learn</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: #f0f1f6" href="/">Profile</a></li>
+                    <li><a style="color: #f0f1f6" href="{{ url_for('auth.logout') }}">Logout</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a style="color: #f0f1f6" href="/">Home</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Try It</a></li>
+                    <li><a style="color: #f0f1f6" href="/">Learn</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: #f0f1f6" href="{{ url_for('auth.login') }}">Sign In</a></li>
+                    <li><a style="color: #f0f1f6" href="{{ url_for('auth.register') }}">Sign Up</a></li>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>
