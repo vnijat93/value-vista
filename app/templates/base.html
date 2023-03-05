@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html"%}
+{% block title %}Value Investing Strategy{% endblock %}
+
+{% block navbar%}
+<div class="navbar navbar-dark" style="background-color: #2b5994;" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a style="color: #f0f1f6" href="/">Home</a></li>
+                <li><a style="color: #f0f1f6" href="/">Try It</a></li>
+                <li><a style="color: #f0f1f6" href="/">Learn</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="color: #f0f1f6" href="#">Sign In</a></li>
+                <li><a style="color: #f0f1f6" href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock%}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
