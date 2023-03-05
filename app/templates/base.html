@@ -17,8 +17,8 @@
                 <li><a style="color: #f0f1f6" href="/">Learn</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a style="color: #f0f1f6" href="#">Sign In</a></li>
-                <li><a style="color: #f0f1f6" href="#">Sign Up</a></li>
+                <li><a style="color: #f0f1f6" href="{{ url_for('auth.login') }}">Sign In</a></li>
+                <li><a style="color: #f0f1f6" href="{{ url_for('auth.register') }}">Sign Up</a></li>
             </ul>
         </div>
     </div>
