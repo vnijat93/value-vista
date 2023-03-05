@@ -8,6 +8,7 @@ flask = "*"
 flask-bootstrap = "*"
 flask-login = "*"
 werkzeug = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 flake8 = "*"
