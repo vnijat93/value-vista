@@ -1,7 +1,14 @@
-from flask_login import (
-    UserMixin,
-    AnonymousUserMixin,
-)
+from datetime import datetime
+
+from flask_login import AnonymousUserMixin, UserMixin
+from werkzeug.security import check_password_hash, generate_password_hash
+from . import login_manager
+from app import db
+
+
+class Permission:
+    REGULAR = 1
+    ADMIN = 2
 
 
 class User(db.Model, UserMixin):
@@ -12,11 +19,7 @@ class User(db.Model, UserMixin):
     full_name = db.Column(db.String(64))
     location = db.Column(db.String(64))
     password_hash = db.Column(db.String(128))
-    role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
     member_since = db.Column(db.DateTime(), default=datetime.utcnow())
-
-    comments = db.relationship("Comment", backref="author", lazy="dynamic")
-    alias_history = db.relationship("AliasHistory", backref="author", lazy="dynamic")
 
     def __repr__(self):
         return f"<User {self.name}>"
@@ -34,14 +37,6 @@ class User(db.Model, UserMixin):
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
-        if self.role is None:
-            if self.email == current_app.config["CALIAS_ADMIN"]:
-                self.role = Role.query.filter_by(name="Admin").first()
-            if self.role is None:
-                self.role = Role.query.filter_by(default=True).first()
-
-    def can(self, perm):
-        return self.role is not None and self.role.has_permission(perm)
 
     def is_admin(self):
         return self.can(Permission.ADMIN)
@@ -55,3 +50,11 @@ class User(db.Model, UserMixin):
 class AnonymousUser(AnonymousUserMixin):
     def is_admin(self):
         return False
+
+
+login_manager.anonymous_user = AnonymousUser
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
