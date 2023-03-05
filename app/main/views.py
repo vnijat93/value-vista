@@ -2,6 +2,6 @@ from . import main
 from flask import render_template
 
 
-@main.route('/', methods=["GET"])
+@main.route("/", methods=["GET"])
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
