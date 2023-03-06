@@ -5,6 +5,13 @@ name = "pypi"
 
 [packages]
 flask = "*"
+flask-bootstrap = "*"
+flask-login = "*"
+werkzeug = "*"
+flask-sqlalchemy = "*"
+flask-wtf = "*"
+email-validator = "*"
+flask-moment = "*"
 
 [dev-packages]
 flake8 = "*"
@@ -18,5 +25,5 @@ python_version = "3.9"
 [scripts]
 test = "pytest --junitxml=build/reports/junit_xml_test_report.xml --cov=src --cov branch --cov-report=html"
 format = "black ."
-lint = "flake8 --max-line-length=88 src tests/unit"
+lint = "flake8 --max-line-length=88 app tests/unit"
 sort = "isort --profile black ."
