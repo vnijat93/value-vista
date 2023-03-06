@@ -11,6 +11,7 @@ werkzeug = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
 email-validator = "*"
+flask-moment = "*"
 
 [dev-packages]
 flake8 = "*"

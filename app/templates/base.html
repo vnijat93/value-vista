@@ -22,7 +22,7 @@
                     <li><a style="color: #f0f1f6" href="/">Learn</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a style="color: #f0f1f6" href="/">Profile</a></li>
+                    <li><a style="color: #f0f1f6" href="{{url_for('main.user', username=current_user.username)}}">Profile</a></li>
                     <li><a style="color: #f0f1f6" href="{{ url_for('auth.logout') }}">Logout</a></li>
                 </ul>
             {% else %}
@@ -56,4 +56,5 @@
 
 {% block scripts %}
 {{ super() }}
+{{ moment.include_moment() }}
 {% endblock %}

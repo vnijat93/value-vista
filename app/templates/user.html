@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title%}VIS - {{user.username}} {% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    
+    <div class="profile-header">
+        <h1>Hello, {{ user.full_name }}</h1>
+        {% if user.username or user.location %}
+        <p>
+            {% if user.location %}
+                From <a href="http://maps.google.com/?q={{ user.location }}">
+                    {{user.location}}
+                </a>
+            {% endif %}
+        </p>
+        {% endif %}
+
+        {% if user.about_me %} <p>{{user.about_me}} </p>{% endif %}
+        <p>
+            Member since {{moment(user.member_since).format('YYYY-MM-DD')}}.
+        </p>
+
+    </div>
+
+</div>
+{% endblock %}
