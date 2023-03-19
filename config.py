@@ -5,8 +5,7 @@ basedir = path.abspath(path.dirname(__file__))
 
 
 class Config:
-
-    SECRET_KEY = os.environ.get('SECRET_KEY') or "CSE682"
+    SECRET_KEY = os.environ.get("SECRET_KEY") or "CSE682"
 
     @staticmethod
     def init_app(app):

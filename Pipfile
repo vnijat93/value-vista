@@ -12,6 +12,7 @@ flask-sqlalchemy = "*"
 flask-wtf = "*"
 email-validator = "*"
 flask-moment = "*"
+value-investing-strategy = {ref = "update-setup", git = "https://github.com/vnijat93/CSE682-Project.git"}
 
 [dev-packages]
 flake8 = "*"
