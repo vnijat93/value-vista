@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}VIS - Fundamental Analysis {% endblock %}
+
+{% block page_content %}
+<div class="page-header text-center">
+    <h1>Cash Flow: {{stock}}</h1>
+</div>
+<div class="table-responsive">
+    <h2>Anual</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="sticky-top">Metric</th>
+                {% for date in anual_dates %}
+                <th scope="col" class="sticky-top">{{date}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for header, clean_header in all_header %}
+            <tr>
+                <th scope="row" class="sticky-top">{{clean_header}}</th>
+                {% for report in anual_reports%}
+                    <td>{{report[header]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Quaterly</h2>
+    <div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="sticky-top">Metric</th>
+                {% for date in quaterly_dates %}
+                <th scope="col" class="sticky-top">{{date}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for header, clean_header in quaterly_header %}
+            <tr>
+                <th scope="row" class="sticky-top" style="position:sticky;left:0px;background-color:white;">{{clean_header}}</th>
+                {% for qr in quaterly_reports%}
+                    <td>{{qr[header]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+{% endblock %}

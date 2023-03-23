@@ -5,6 +5,14 @@ from value_investing_strategy.strategy_system.StrategySystem import StrategySyst
 
 class SelectStockForm(FlaskForm):
     stock_list = StrategySystem.get_available_stocks()
-
     stock = SelectField("Stock", choices=stock_list)
+    submit = SubmitField("submit")
+
+
+class SelectFundamentalAnalysis(SelectStockForm):
+
+    options = SelectField(
+        "Analysis",
+        choices=["Company Overview", "Earnings", "Cash Flow", "Balance Sheet"]
+    )
     submit = SubmitField("submit")
