@@ -1,7 +1,7 @@
 from flask import render_template, abort
 from . import main
 from ..models import User
-from .forms import SelectStockForm, SelectFundamentalAnalysis
+from .forms import SelectStockForm, SelectFundamentalAnalysis, RebalancePortfolio
 from .utils import snake_to_regular_dict, sort_by_date
 from value_investing_strategy.strategy_system.stocks.stock.Stock import Stock
 
@@ -36,6 +36,17 @@ def calculate_graham_number():
         )
 
     return render_template("cgn.html", form=form)
+
+
+@main.route("/rebalance", methods=["GET", "POST"])
+def rebalance_portfolio():
+    form = RebalancePortfolio()
+
+    if form.validate_on_submit():
+        stock_ticker = form.stock.data
+        stock = Stock.from_alpha_vantage_data(stock_ticker)
+
+    return render_template("rebalance_portfolio.html", form=form)
 
 
 @main.route("/fund_analysis", methods=["GET", "POST"])
