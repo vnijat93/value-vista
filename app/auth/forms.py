@@ -13,7 +13,6 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-
     full_name = StringField(
         "Full Name",
         validators=[
@@ -22,8 +21,8 @@ class RegistrationForm(FlaskForm):
             Regexp(
                 "^[A-Z][a-z]+\s[A-Z][a-z]+$",
                 0,
-            )
-        ]
+            ),
+        ],
     )
 
     email = StringField("Email", validators=[DataRequired(), Length(8, 64), Email()])

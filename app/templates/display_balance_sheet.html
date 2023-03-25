@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}VIS - Fundamental Analysis {% endblock %}
+
+{% block page_content %}
+<div class="page-header text-center">
+    <h1>Balance Sheet</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Metric</th>
+                {% for date in dates %}
+                <th scope="col" class="text-center">{{date}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for header, clean_header in all_header %}
+            <tr>
+                <th scope="row" class="text-center">{{clean_header}}</th>
+                {% for report in reports%}
+                    <td>{{report[header]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
