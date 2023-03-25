@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "beeae4348f0cdb7609e41d9598bd06f7ee8e440c1b2b85d41a3c57acb35bb6af"
+            "sha256": "11859865ff14a4711ea62d40d3e2e1d7e896abada1ecdc1963539f7ebfcddb57"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -791,8 +791,9 @@
             "version": "==1.26.14"
         },
         "value-investing-strategy": {
-            "git": "https://github.com/vnijat93/CSE682-Project.git",
-            "ref": "4ee63a779c5af15fa0b9695af29aa4940b3d95ab"
+            "editable": true,
+            "git": "https://github.com/jm0rt1/CSE682-Project.git",
+            "ref": "2fb64ae18714a108952ae2265746f3e85f13d646"
         },
         "visitor": {
             "hashes": [
