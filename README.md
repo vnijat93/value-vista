@@ -1,7 +1,5 @@
 # Value-Vista
 
-test
-
 A website for demoing [Value-Investing-Strategy](https://github.com/jm0rt1/CSE682-Project) system's capabilities.
 
 ## Development
