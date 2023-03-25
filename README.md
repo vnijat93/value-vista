@@ -21,3 +21,4 @@ export FLASK_APP='value_vista.py'
 flask run --debug
 ```
 
+> Sometimes you might encounter a `ModuleNotFound` error when starting the flask app. This often is caused by Python using the Anaconda version of the module instead of the pipenv version because the Anaconda version is installed in the system path, and therefore takes precedence over the version installed in your pipenv environment. Simpely run `conda uninstall {package}` to remove that package from you system path.
